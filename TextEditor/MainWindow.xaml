@@ -1,0 +1,56 @@
+﻿<Window x:Class="TextEditor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TextEditor"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        
+        <ToolBarTray>
+            <ToolBar Height="60" Margin="5" Padding="5" VerticalAlignment="Center">
+                <ComboBox Width="150" Padding="2" FontSize="14" SelectedIndex="2" IsEditable="True" SelectionChanged="FontFamily_ComboBox_SelectionChanged">
+                    <ComboBoxItem Content="Arial"/>
+                    <ComboBoxItem Content="Calibri"/>
+                    <ComboBoxItem Content="Times New Roman" IsSelected="True"/>
+                    <ComboBoxItem Content="Isocpeur"/>
+                    <ComboBoxItem Content="Verdana"/>
+                </ComboBox>
+                <ComboBox Width="40" Padding="2" FontSize="14" SelectionChanged="FontSize_ComboBox_SelectionChanged">
+                    <ComboBoxItem Content="8"/>
+                    <ComboBoxItem Content="10"/>
+                    <ComboBoxItem Content="12" IsSelected="True"/>
+                    <ComboBoxItem Content="14"/>
+                    <ComboBoxItem Content="16"/>
+                </ComboBox>
+            </ToolBar>
+            <ToolBar Margin="5" Padding="5" VerticalAlignment="Center">
+                <ToggleButton Click="Bold_ToggleButton_Click">
+                    <Image Source="/Data/bold.jpg" Width="30" Height="30" Margin="5"/>
+                </ToggleButton>
+                <Separator/>
+                <ToggleButton Click="Italic_ToggleButton_Click">
+                    <Image Source="/Data/italic.png" Width="30" Height="30" Margin="5"/>
+                </ToggleButton>
+                <Separator/>
+                <ToggleButton Click="Underline_ToggleButton_Click">
+                    <Image Source="/Data/underline.jpg" Width="30" Height="30" Margin="5"/>
+                </ToggleButton>
+            </ToolBar>
+            <ToolBar Margin="5" Padding="5" VerticalAlignment="Center">
+                <StackPanel>
+                    <RadioButton Content="Черный" GroupName="Color" IsChecked="True" Checked="Black_RadioButton_Checked"/>
+                    <RadioButton Content="Красный" GroupName="Color" Click="Red_RadioButton_Checked"/>
+                    <RadioButton Content="Синий" GroupName="Color" Click="Blue_RadioButton_Checked"/>
+                </StackPanel>
+            </ToolBar>
+        </ToolBarTray>
+        
+        <TextBox x:Name="textBox" Grid.Row="1" Margin="5" Padding="5" ScrollViewer.CanContentScroll="True" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" AcceptsTab="True" TextWrapping="Wrap"/>
+    </Grid>
+</Window>
