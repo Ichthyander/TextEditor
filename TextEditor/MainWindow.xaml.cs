@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,7 +21,7 @@ namespace TextEditor
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
-    {
+    {      
         public MainWindow()
         {
             InitializeComponent();
@@ -100,6 +102,40 @@ namespace TextEditor
             if (textBox != null)
             {
                 textBox.Foreground = Brushes.Blue;
+            }
+        }
+
+        private void Open_MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "TextBook files (.txt)|*.txt|All files (.*)|*.*";
+            openFileDialog.ShowDialog();
+
+            textBox.Text = File.ReadAllText(openFileDialog.FileName);
+        }
+
+        private void Save_MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "TextBook files (.txt)|*.txt";
+            saveFileDialog.ShowDialog();
+
+            File.WriteAllText(saveFileDialog.FileName, textBox.Text);
+        }
+
+        private void Close_MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult messageBoxResult = MessageBox.Show("Сохранить текст перед выходом из приложения?", Title="Выход из приложения", MessageBoxButton.YesNo);
+            
+            switch (messageBoxResult)
+            {
+                case MessageBoxResult.Yes:
+                    Save_MenuItem_Click(sender, e);
+                    Application.Current.Shutdown();
+                    break;
+                case MessageBoxResult.No:
+                    Application.Current.Shutdown();
+                    break;
             }
         }
     }
