@@ -6,14 +6,18 @@
         xmlns:local="clr-namespace:TextEditor"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.CommandBindings>
+        <CommandBinding Command="Open" Executed="Open_MenuItem_Click"/>
+        <CommandBinding Command="SaveAs" Executed="Save_MenuItem_Click"/>
+        <CommandBinding Command="Close" Executed="Close_MenuItem_Click"/>
+    </Window.CommandBindings>
 
     <DockPanel>
-
         <Menu DockPanel.Dock="Top" >
             <MenuItem Header="Файл">
-                <MenuItem Header="Открыть" Click="Open_MenuItem_Click"/>
-                <MenuItem Header="Сохранить" Click="Save_MenuItem_Click"/>
-                <MenuItem Header="Закрыть" Click="Close_MenuItem_Click"/>
+                <MenuItem Header="Открыть" Command="Open"/>
+                <MenuItem Header="Сохранить" Command="SaveAs"/>
+                <MenuItem Header="Закрыть" Command="Close"/>
             </MenuItem>
         </Menu>
 

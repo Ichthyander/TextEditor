@@ -21,7 +21,7 @@ namespace TextEditor
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
-    {      
+    {
         public MainWindow()
         {
             InitializeComponent();
@@ -111,7 +111,9 @@ namespace TextEditor
             openFileDialog.Filter = "TextBook files (.txt)|*.txt|All files (.*)|*.*";
             openFileDialog.ShowDialog();
 
-            textBox.Text = File.ReadAllText(openFileDialog.FileName);
+            string path = openFileDialog.FileName;
+            if (path != String.Empty)
+                textBox.Text = File.ReadAllText(path);
         }
 
         private void Save_MenuItem_Click(object sender, RoutedEventArgs e)
@@ -120,13 +122,15 @@ namespace TextEditor
             saveFileDialog.Filter = "TextBook files (.txt)|*.txt";
             saveFileDialog.ShowDialog();
 
-            File.WriteAllText(saveFileDialog.FileName, textBox.Text);
+            string path = saveFileDialog.FileName;
+            if (path != String.Empty)
+                File.WriteAllText(path, textBox.Text);
         }
 
         private void Close_MenuItem_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult messageBoxResult = MessageBox.Show("Сохранить текст перед выходом из приложения?", Title="Выход из приложения", MessageBoxButton.YesNo);
-            
+            MessageBoxResult messageBoxResult = MessageBox.Show("Сохранить текст перед выходом из приложения?", Title = "Выход из приложения", MessageBoxButton.YesNo);
+
             switch (messageBoxResult)
             {
                 case MessageBoxResult.Yes:
