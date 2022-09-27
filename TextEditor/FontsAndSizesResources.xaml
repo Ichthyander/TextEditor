@@ -6,6 +6,7 @@
     <col:ArrayList x:Key="Fonts">
         <sys:String>Arial</sys:String>
         <sys:String>Calibri</sys:String>
+        <sys:String>Courier New</sys:String>
         <sys:String>Times New Roman</sys:String>
         <sys:String>Isocpeur</sys:String>
         <sys:String>Verdana</sys:String>

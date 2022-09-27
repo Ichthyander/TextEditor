@@ -23,7 +23,7 @@
 
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
-                <RowDefinition Height="70"/>
+                <RowDefinition Height="80"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
@@ -62,7 +62,17 @@
                         <RadioButton Content="Черный" GroupName="Color" IsChecked="True" Checked="Black_RadioButton_Checked"/>
                         <RadioButton Content="Красный" GroupName="Color" Click="Red_RadioButton_Checked"/>
                         <RadioButton Content="Синий" GroupName="Color" Click="Blue_RadioButton_Checked"/>
+                        <RadioButton Content="Белый" GroupName="Color" Click="White_RadioButton_Checked"/>
                     </StackPanel>
+                    <ComboBox Name="themesComboBox"
+                              Width="80"
+                              FontSize="14"
+                              Margin="10"
+                              SelectedIndex="0" SelectionChanged="themesComboBox_SelectionChanged">
+                        <ComboBoxItem Content="Светлая"/>
+                        <ComboBoxItem Content="Тёмная"/>
+                        <ComboBoxItem Content="Классика"/>
+                    </ComboBox>
                 </ToolBar>
             </ToolBarTray>
 

@@ -105,6 +105,14 @@ namespace TextEditor
             }
         }
 
+        private void White_RadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            if (textBox != null)
+            {
+                textBox.Foreground = Brushes.White;
+            }
+        }
+
         private void Open_MenuItem_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -142,5 +150,28 @@ namespace TextEditor
                     break;
             }
         }
+
+        private void themesComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Application.Current.Resources.MergedDictionaries.Clear();
+            string uriString;
+            if (themesComboBox.SelectedIndex == 0)
+            {
+                uriString = "LightTheme.xaml";
+            }
+            else if (themesComboBox.SelectedIndex == 1)
+            {
+                uriString = "DarkTheme.xaml";
+            }
+            else
+            {
+                uriString = "ClassicTheme.xaml";
+            }
+
+            Uri theme = new Uri(uriString, UriKind.Relative);
+            ResourceDictionary themeDictionary = Application.LoadComponent(theme) as ResourceDictionary;
+            Application.Current.Resources.MergedDictionaries.Add(themeDictionary);
+        }
+
     }
 }
