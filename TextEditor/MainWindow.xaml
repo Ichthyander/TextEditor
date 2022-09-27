@@ -29,20 +29,20 @@
 
             <ToolBarTray>
                 <ToolBar Height="60" Margin="5" Padding="5" VerticalAlignment="Center">
-                    <ComboBox Width="150" Padding="2" FontSize="14" SelectedIndex="2" IsEditable="True" SelectionChanged="FontFamily_ComboBox_SelectionChanged">
-                        <ComboBoxItem Content="Arial"/>
-                        <ComboBoxItem Content="Calibri"/>
-                        <ComboBoxItem Content="Times New Roman" IsSelected="True"/>
-                        <ComboBoxItem Content="Isocpeur"/>
-                        <ComboBoxItem Content="Verdana"/>
-                    </ComboBox>
-                    <ComboBox Width="40" Padding="2" FontSize="14" SelectionChanged="FontSize_ComboBox_SelectionChanged">
-                        <ComboBoxItem Content="8"/>
-                        <ComboBoxItem Content="10"/>
-                        <ComboBoxItem Content="12" IsSelected="True"/>
-                        <ComboBoxItem Content="14"/>
-                        <ComboBoxItem Content="16"/>
-                    </ComboBox>
+                    <ComboBox Width="150" Padding="2" 
+                              FontSize="14" 
+                              SelectedIndex="2" 
+                              IsEditable="True"
+                              SelectionChanged="FontFamily_ComboBox_SelectionChanged"
+                              ItemsSource="{StaticResource Fonts}"/>
+
+                    <ComboBox Width="40" 
+                              Padding="2" 
+                              FontSize="14"
+                              SelectedIndex="3" 
+                              SelectionChanged="FontSize_ComboBox_SelectionChanged"
+                              ItemsSource="{StaticResource Sizes}"/>
+
                 </ToolBar>
                 <ToolBar Margin="5" Padding="5" VerticalAlignment="Center">
                     <ToggleButton Click="Bold_ToggleButton_Click">

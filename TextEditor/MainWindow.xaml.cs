@@ -29,7 +29,7 @@ namespace TextEditor
 
         private void FontFamily_ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string fontFamily = (((sender as ComboBox).SelectedItem as ComboBoxItem).Content as String);
+            string fontFamily = (sender as ComboBox).SelectedItem as String;
             if (textBox != null)
             {
                 textBox.FontFamily = new FontFamily(fontFamily);
@@ -38,7 +38,7 @@ namespace TextEditor
 
         private void FontSize_ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            double fontSize = Convert.ToDouble((((sender as ComboBox).SelectedItem as ComboBoxItem).Content as String));
+            double fontSize = Convert.ToDouble((sender as ComboBox).SelectedItem as String);
             if (textBox != null)
             {
                 textBox.FontSize = fontSize;
