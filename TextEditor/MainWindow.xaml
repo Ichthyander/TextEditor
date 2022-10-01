@@ -29,18 +29,18 @@
 
             <ToolBarTray>
                 <ToolBar Height="60" Margin="5" Padding="5" VerticalAlignment="Center">
-                    <ComboBox Width="150" Padding="2" 
+                    <ComboBox x:Name="fontsComboBox"
+                              Width="150" Padding="2" 
                               FontSize="14" 
                               SelectedIndex="2" 
                               IsEditable="True"
-                              SelectionChanged="FontFamily_ComboBox_SelectionChanged"
                               ItemsSource="{StaticResource Fonts}"/>
 
-                    <ComboBox Width="40" 
+                    <ComboBox x:Name="sizesComboBox" 
+                              Width="40" 
                               Padding="2" 
                               FontSize="14"
                               SelectedIndex="3" 
-                              SelectionChanged="FontSize_ComboBox_SelectionChanged"
                               ItemsSource="{StaticResource Sizes}"/>
 
                 </ToolBar>
@@ -76,7 +76,14 @@
                 </ToolBar>
             </ToolBarTray>
 
-            <TextBox x:Name="textBox" Grid.Row="1" Margin="5" Padding="5" ScrollViewer.CanContentScroll="True" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" AcceptsTab="True" TextWrapping="Wrap"/>
+            <TextBox x:Name="textBox" 
+                     Grid.Row="1" 
+                     Margin="5" Padding="5" 
+                     FontFamily="{Binding ElementName=fontsComboBox, Path=Text}"
+                     FontSize="{Binding ElementName=sizesComboBox, Path=Text}"
+                     ScrollViewer.CanContentScroll="True" VerticalScrollBarVisibility="Auto" 
+                     AcceptsReturn="True" AcceptsTab="True" 
+                     TextWrapping="Wrap"/>
         </Grid>
     </DockPanel>
 </Window>

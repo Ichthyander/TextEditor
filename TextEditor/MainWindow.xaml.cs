@@ -27,23 +27,25 @@ namespace TextEditor
             InitializeComponent();
         }
 
-        private void FontFamily_ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            string fontFamily = (sender as ComboBox).SelectedItem as String;
-            if (textBox != null)
-            {
-                textBox.FontFamily = new FontFamily(fontFamily);
-            }
-        }
+        //@Deprecated
+        //private void FontFamily_ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    string fontFamily = (sender as ComboBox).SelectedItem as String;
+        //    if (textBox != null)
+        //    {
+        //        textBox.FontFamily = new FontFamily(fontFamily);
+        //    }
+        //}
 
-        private void FontSize_ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            double fontSize = Convert.ToDouble((sender as ComboBox).SelectedItem as String);
-            if (textBox != null)
-            {
-                textBox.FontSize = fontSize;
-            }
-        }
+        //@Deprecated
+        //private void FontSize_ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    double fontSize = Convert.ToDouble((sender as ComboBox).SelectedItem as String);
+        //    if (textBox != null)
+        //    {
+        //        textBox.FontSize = fontSize;
+        //    }
+        //}
 
         private void Bold_ToggleButton_Click(object sender, RoutedEventArgs e)
         {
